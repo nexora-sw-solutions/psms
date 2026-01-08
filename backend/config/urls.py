@@ -21,6 +21,9 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from core.views import MeView
+from core.views import MeView, UserInviteView
+from core.views import UserProfileView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +32,9 @@ urlpatterns = [
     path('api/v1/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/v1/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/v1/auth/me/', MeView.as_view(), name='user_me'),
+    path('api/v1/users/<uuid:id>/', UserProfileView.as_view(), name='user_profile'),
+
+
+    # User Invitation
+    path('api/v1/users/', UserInviteView.as_view(), name='user_invite'),
 ]

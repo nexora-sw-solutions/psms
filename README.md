@@ -44,27 +44,24 @@ docker-compose up --build
 
 ---
 
-## Next Steps (Developer Tasks)
+## Phase 2 Tasks (Developer)
 
-### 1. Organization Models
-**Status**: The base `Organization` model exists in `core/models.py`.
+### 1. Full Ownership of Clients
+**Status**: Stub `Client` model exists in `clients/models.py`.
 **Action**:
--   Review the existing model.
--   Add any missing fields if specified in your requirements.
--   Ensure migrations are created/applied: `python manage.py makemigrations` / `migrate`.
+-   Implement the full `Client` model (add fields: Industry, Status, etc.).
+-   Create API endpoints: `GET`, `POST`, `PATCH`, `DELETE` at `/api/v1/clients/`.
 
-### 2. User Invitation (`POST /api/v1/users`)
+### 2. Full Ownership of Contacts
 **Action**:
--   Create a view/endpoint to invite new users.
--   **Requirement**: Only `FIRM_ADMIN` or `MANAGER` should be able to invite.
--   **Logic**: Create user -> Assign Default Password -> Send Email (mock for now).
+-   Implement `Contact` model (ForeignKey to Client).
+    -   Fields: `full_name`, `email`, `phone`, `is_primary`.
+-   Create API endpoints (Sub-resource or standalone) to manage contacts.
 
-### 3. Profile Management (`GET/PATCH /api/v1/users/{id}`)
+### 3. List Views & Filtering
 **Action**:
--   Allow users to view/update their own profile.
--   Ensure `IsAuthenticated` and Object-level permissions (users can only edit themselves).
-
-### 4. Unit Tests
-**Action**:
--   Add tests in `core/tests.py`.
--   Cover: Organization creation, User signup/invitation flows.
+-   Update `GET /api/v1/clients/`.
+-   **Requirement**: Add filtering capabilities.
+    -   Search by `name`.
+    -   Filter by `industry`.
+-   Recommended: Use `django-filter` or DRF's `SearchFilter`.
