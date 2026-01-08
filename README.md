@@ -1,8 +1,11 @@
-# PSMS Backend (Phase 1)
+# PSMS Backend (Phase 2)
 
 ## Overview
 This is the backend for the PSMS application, built with Django & Django REST Framework.
-The **Phase 1 Foundation** has been implemented by the Tech Lead, including the custom user model, RBAC, and authentication setup.
+The **Phase 1 Foundation** has been implemented, including the custom user model, RBAC, and authentication setup.
+
+### Phase 1 has been completed.
+### Tech Lead's Phase 2 has been completed.
 
 ## Getting Started
 
